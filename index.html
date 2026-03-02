@@ -1271,7 +1271,7 @@
             // SET YOUR LAUNCH DATE HERE (Year, Month-1, Day, Hour, Minute)
             // Month is 0-indexed: 0=January, 1=February, 2=March, etc.
             // Example: April 1, 2025 at 20:00 = new Date(2025, 3, 1, 20, 0, 0)
-            const targetDate = new Date(2026, 3, 3, 18, 0, 0); // April 1, 2025 at 20:00
+            const targetDate = new Date(2025, 3, 1, 20, 0, 0); // April 1, 2025 at 20:00
             
             function updateCountdown() {
                 const now = new Date().getTime();
@@ -1318,7 +1318,24 @@
                 header.classList.remove('scrolled');
             }
         });
-		
+
+        // Particle generation
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.width = Math.random() * 3 + 1 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
         createParticles();
 
         // Scroll reveal animation
