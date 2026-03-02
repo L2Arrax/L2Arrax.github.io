@@ -1266,21 +1266,12 @@
             }
         });
 
-        // Countdown Timer - 30 days from first visit
+        // Countdown Timer - Fixed launch date (everyone sees the same)
         function startCountdown() {
-            // Check if we already have a saved target date
-            let targetDate;
-            const savedDate = localStorage.getItem('countdownTargetDate');
-            
-            if (savedDate) {
-                // Use the saved date
-                targetDate = new Date(savedDate);
-            } else {
-                // First time: set target to 30 days from now and save it
-                const now = new Date();
-                targetDate = new Date(now.getTime() + (30 * 24 * 60 * 60 * 1000));
-                localStorage.setItem('countdownTargetDate', targetDate.toISOString());
-            }
+            // SET YOUR LAUNCH DATE HERE (Year, Month-1, Day, Hour, Minute)
+            // Month is 0-indexed: 0=January, 1=February, 2=March, etc.
+            // Example: April 1, 2025 at 20:00 = new Date(2025, 3, 1, 20, 0, 0)
+            const targetDate = new Date(2026, 3, 3, 18, 0, 0); // April 1, 2025 at 20:00
             
             function updateCountdown() {
                 const now = new Date().getTime();
@@ -1327,24 +1318,7 @@
                 header.classList.remove('scrolled');
             }
         });
-
-        // Particle generation
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 30;
-
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.width = Math.random() * 3 + 1 + 'px';
-                particle.style.height = particle.style.width;
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 15 + 's';
-                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-                particlesContainer.appendChild(particle);
-            }
-        }
-
+		
         createParticles();
 
         // Scroll reveal animation
