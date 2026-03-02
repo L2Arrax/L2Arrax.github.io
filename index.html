@@ -1266,11 +1266,21 @@
             }
         });
 
-        // Countdown Timer - 30 days from now
+        // Countdown Timer - 30 days from first visit
         function startCountdown() {
-            // Set the target date to 30 days from now
-            const now = new Date();
-            const targetDate = new Date(now.getTime() + (30 * 24 * 60 * 60 * 1000));
+            // Check if we already have a saved target date
+            let targetDate;
+            const savedDate = localStorage.getItem('countdownTargetDate');
+            
+            if (savedDate) {
+                // Use the saved date
+                targetDate = new Date(savedDate);
+            } else {
+                // First time: set target to 30 days from now and save it
+                const now = new Date();
+                targetDate = new Date(now.getTime() + (30 * 24 * 60 * 60 * 1000));
+                localStorage.setItem('countdownTargetDate', targetDate.toISOString());
+            }
             
             function updateCountdown() {
                 const now = new Date().getTime();
