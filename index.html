@@ -123,7 +123,7 @@
         }
 
         .logo {
-            height: 100px;
+            height: 60px;
             width: auto;
             filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.6));
             animation: glow-pulse 3s ease-in-out infinite;
@@ -969,6 +969,29 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Hero Logo Styles */
+        .hero-logo-container {
+            margin-bottom: 2rem;
+            animation: fade-in-up 1.2s ease-out, float-logo 6s ease-in-out infinite;
+        }
+
+        .hero-logo {
+            width: 500px;
+            max-width: 90vw;
+            height: auto;
+            filter: drop-shadow(0 0 40px rgba(212, 175, 55, 0.8)) 
+                    drop-shadow(0 0 80px rgba(139, 0, 0, 0.6));
+        }
+
+        @keyframes float-logo {
+            0%, 100% { 
+                transform: translateY(0px);
+            }
+            50% { 
+                transform: translateY(-20px);
+            }
+        }
     </style>
 </head>
 <body>
@@ -994,7 +1017,9 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>LINEAGE ARRAX</h1>
+            <div class="hero-logo-container">
+                <img src="logo.png" alt="Lineage Arrax" class="hero-logo">
+            </div>
             <div class="subtitle">Multiproff Premium Server</div>
             <p class="description">
                 Experience the ultimate Lineage 2 adventure with custom features, balanced gameplay, 
