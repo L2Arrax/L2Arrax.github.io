@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>L2MulticraftX - Premium MMORPG Server</title>
+    <title>Lineage Arrax - Premium MMORPG Server</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -123,6 +123,13 @@
         }
 
         .logo {
+            height: 60px;
+            width: auto;
+            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.6));
+            animation: glow-pulse 3s ease-in-out infinite;
+        }
+
+        .logo-text {
             font-family: 'Cinzel', serif;
             font-size: 2rem;
             font-weight: 900;
@@ -974,7 +981,7 @@
     <!-- Header -->
     <header id="header">
         <nav>
-            <div class="logo">L2MULTICRAFTX</div>
+            <img src="logo.png" alt="Lineage Arrax" class="logo">
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#features">Features</a></li>
@@ -987,7 +994,7 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>L2MULTICRAFTX</h1>
+            <h1>LINEAGE ARRAX</h1>
             <div class="subtitle">Multiproff Premium Server</div>
             <p class="description">
                 Experience the ultimate Lineage 2 adventure with custom features, balanced gameplay, 
@@ -1271,7 +1278,7 @@
             // SET YOUR LAUNCH DATE HERE (Year, Month-1, Day, Hour, Minute)
             // Month is 0-indexed: 0=January, 1=February, 2=March, etc.
             // Example: April 1, 2025 at 20:00 = new Date(2025, 3, 1, 20, 0, 0)
-            const targetDate = new Date(2026, 3, 3, 18, 0, 0); // April 1, 2025 at 20:00
+            const targetDate = new Date(2025, 3, 1, 20, 0, 0); // April 1, 2025 at 20:00
             
             function updateCountdown() {
                 const now = new Date().getTime();
