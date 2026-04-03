@@ -1071,33 +1071,33 @@
     </section>
 
     <!-- Countdown Section -->
-    <section class="stats">
-        <div class="countdown-container">
-            <h2 class="countdown-title">Server Launch Countdown</h2>
-            <div class="countdown-timer" id="countdown">
-                <div class="time-unit">
-                    <div class="time-value" id="days">30</div>
-                    <div class="time-label">Days</div>
-                </div>
-                <div class="time-separator">:</div>
-                <div class="time-unit">
-                    <div class="time-value" id="hours">00</div>
-                    <div class="time-label">Hours</div>
-                </div>
-                <div class="time-separator">:</div>
-                <div class="time-unit">
-                    <div class="time-value" id="minutes">00</div>
-                    <div class="time-label">Minutes</div>
-                </div>
-                <div class="time-separator">:</div>
-                <div class="time-unit">
-                    <div class="time-value" id="seconds">00</div>
-                    <div class="time-label">Seconds</div>
-                </div>
+<section class="stats">
+    <div class="countdown-container">
+        <h2 class="countdown-title">Server Online Since</h2>
+        <div class="countdown-timer" id="countdown">
+            <div class="time-unit">
+                <div class="time-value" id="days">00</div>
+                <div class="time-label">Days</div>
+            </div>
+            <div class="time-separator">:</div>
+            <div class="time-unit">
+                <div class="time-value" id="hours">00</div>
+                <div class="time-label">Hours</div>
+            </div>
+            <div class="time-separator">:</div>
+            <div class="time-unit">
+                <div class="time-value" id="minutes">00</div>
+                <div class="time-label">Minutes</div>
+            </div>
+            <div class="time-separator">:</div>
+            <div class="time-unit">
+                <div class="time-value" id="seconds">00</div>
+                <div class="time-label">Seconds</div>
             </div>
         </div>
-    </section>
-
+    </div>
+</section>
+	
     <!-- Features Section -->
     <section class="features" id="features">
         <div class="section-title">
@@ -1330,44 +1330,27 @@
         });
 
         // Countdown Timer - Fixed launch date (everyone sees the same)
-        function startCountdown() {
-            // SET YOUR LAUNCH DATE HERE (Year, Month-1, Day, Hour, Minute)
-            // Month is 0-indexed: 0=January, 1=February, 2=March, etc.
-            // Example: April 1, 2025 at 20:00 = new Date(2025, 3, 1, 20, 0, 0)
-            const targetDate = new Date('2026-04-03T16:00:00Z');
-            
-            function updateCountdown() {
-                const now = new Date().getTime();
-                const distance = targetDate - now;
+       function startCountdown() {
+    const startDate = new Date('2026-04-03T16:00:00Z');
 
-                // If countdown is finished
-                if (distance < 0) {
-                    document.getElementById('days').textContent = '00';
-                    document.getElementById('hours').textContent = '00';
-                    document.getElementById('minutes').textContent = '00';
-                    document.getElementById('seconds').textContent = '00';
-                    return;
-                }
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const elapsed = now - startDate;
 
-                // Calculate time units
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        const days = Math.floor(elapsed / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((elapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((elapsed % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((elapsed % (1000 * 60)) / 1000);
 
-                // Display with leading zeros
-                document.getElementById('days').textContent = String(days).padStart(2, '0');
-                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-            }
+        document.getElementById('days').textContent = String(days).padStart(2, '0');
+        document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    }
 
-            // Update immediately
-            updateCountdown();
-            
-            // Update every second
-            setInterval(updateCountdown, 1000);
-        }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+}
 
         // Start countdown when page loads
         startCountdown();
@@ -1434,6 +1417,5 @@
         });
     </script>
 	<a href="https://l2list.com" style="position: fixed; z-index:99999; bottom: 10px; left: 10px;" target="_blank"><img src="https://l2list.com/bnrs/l2list_lineage2.png" alt="New private servers Lineage 2" title="New private servers Lineage 2"></a>
-	<a href="https://l2.hopzone.net/site/vote/107257/1"><img src="https://l2.hopzone.net/assets/img/banners/vote_banners/simple_banner_1.png" alt="Vote for L2ARRAX.GITHUB.IO" title="L2.HOPZONE.NET – Lineage 2 Servers ranking" style="border:0; position: fixed; z-index:99999; bottom: 0; right: 0; width:140px; height: 120px;"></a>
-</body>
+	</body>
 </html>
