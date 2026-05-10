@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lineage DarkWorld </title>
+    <title>Lineage DarkWorld</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -247,30 +247,38 @@
             overflow: hidden;
         }
 
+        /* Resplandor sutil detrás del contenido */
         .hero::before {
             content: '';
             position: absolute;
-            top: 20%;
+            top: 35%;
             left: 50%;
             transform: translateX(-50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(0, 255, 255, 0.08) 0%, transparent 70%);
-            filter: blur(100px);
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, 
+                rgba(0, 255, 255, 0.08) 0%, 
+                rgba(0, 200, 200, 0.04) 40%,
+                transparent 70%);
+            filter: blur(80px);
             z-index: 0;
-            animation: pulse-hero-bg 6s ease-in-out infinite;
+            animation: pulse-hero-bg 8s ease-in-out infinite;
         }
 
         @keyframes pulse-hero-bg {
-            0%, 100% { opacity: 0.4; }
-            50% { opacity: 0.7; }
+            0%, 100% { 
+                opacity: 0.6;
+            }
+            50% { 
+                opacity: 1;
+            }
         }
 
         .hero-content {
             max-width: 1200px;
             text-align: center;
             position: relative;
-            z-index: 2;
+            z-index: 10;
             animation: fade-in-up 1s ease-out;
         }
 
@@ -1050,64 +1058,53 @@
             transform: translateY(0);
         }
 
-        /* Hero Logo Styles - INTEGRACIÓN MEJORADA */
-.hero-logo-container {
-    margin-bottom: 2rem;
-    animation: fade-in-up 1.2s ease-out, float-logo 6s ease-in-out infinite;
-    position: relative;
-    z-index: 5;
-}
+        /* Hero Logo Styles - LOGO ESTÁTICO */
+        .hero-logo-container {
+            margin-bottom: 2rem;
+            animation: fade-in-up 1.2s ease-out;
+            position: relative;
+            z-index: 5;
+        }
 
-/* El resplandor detrás del personaje */
-.hero-logo-container::before {
-    content: '';
-    position: absolute;
-    top: 40%; /* Centrado en el torso del personaje */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 350px;
-    height: 350px;
-    background: radial-gradient(circle, rgba(0, 255, 255, 0.25) 0%, transparent 70%);
-    filter: blur(40px);
-    z-index: -1;
-    animation: pulse-glow 4s ease-in-out infinite;
-}
+        /* El resplandor detrás del logo */
+        .hero-logo-container::before {
+            content: '';
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.25) 0%, transparent 70%);
+            filter: blur(40px);
+            z-index: -1;
+            animation: pulse-glow 4s ease-in-out infinite;
+        }
 
-.hero-logo {
-    width: 500px; /* Un poco más grande para imponer */
-    max-width: 90vw;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    
-    /* Drop shadow basado en la silueta del PNG */
-    filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.4)) 
-            drop-shadow(0 15px 30px rgba(0, 0, 0, 0.8));
-    
-    /* ESTO ES CLAVE: Difumina la base del logo para que no se vea el corte recto */
-    -webkit-mask-image: linear-gradient(to bottom, 
-        black 0%, 
-        black 85%, 
-        transparent 100%
-    );
-    mask-image: linear-gradient(to bottom, 
-        black 0%, 
-        black 85%, 
-        transparent 100%
-    );
-    
-    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
+        .hero-logo {
+            width: 500px;
+            max-width: 90vw;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.4)) 
+                    drop-shadow(0 15px 30px rgba(0, 0, 0, 0.8));
+            -webkit-mask-image: linear-gradient(to bottom, 
+                black 0%, 
+                black 85%, 
+                transparent 100%
+            );
+            mask-image: linear-gradient(to bottom, 
+                black 0%, 
+                black 85%, 
+                transparent 100%
+            );
+        }
 
-.hero-logo:hover {
-    transform: scale(1.03);
-    filter: drop-shadow(0 0 35px rgba(0, 255, 255, 0.6));
-}
-
-@keyframes pulse-glow {
-    0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-    50% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.2); }
-}
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.2); }
+        }
     </style>
 </head>
 <body>
@@ -1413,7 +1410,7 @@
             }
         });
 
-        // Countdown Timer - Fixed launch date (everyone sees the same)
+        // Countdown Timer
        function startCountdown() {
     const startDate = new Date('2026-04-03T16:00:00Z');
 
