@@ -654,14 +654,14 @@
 
         .popup-content {
             background: linear-gradient(135deg, rgba(15, 15, 25, 0.95), rgba(10, 10, 15, 0.95));
-            border: 2px solid var(--primary-gold);
+            border: 2px solid var(--primary-cyan);
             border-radius: 15px;
             padding: 3rem;
             max-width: 700px;
             width: 90%;
             position: relative;
             animation: slideUp 0.4s ease;
-            box-shadow: 0 20px 80px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 20px 80px rgba(0, 255, 255, 0.3);
             backdrop-filter: blur(20px);
         }
 
@@ -695,27 +695,31 @@
         }
 
         .popup-close:hover {
-            background: rgba(212, 175, 55, 0.2);
-            color: var(--primary-gold);
+            background: rgba(0, 255, 255, 0.2);
+            color: var(--primary-cyan);
             transform: rotate(90deg);
         }
 
         .popup-content h2 {
             font-family: 'Cinzel', serif;
             font-size: 2.5rem;
-            background: linear-gradient(135deg, var(--primary-gold), #fff);
+            background: linear-gradient(135deg, var(--primary-cyan), var(--primary-gold), #fff);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 1rem;
             text-align: center;
             letter-spacing: 2px;
+            filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.4));
         }
 
         .popup-subtitle {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.3rem;
-            color: var(--primary-gold);
+            background: linear-gradient(135deg, var(--primary-cyan), var(--primary-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
             text-align: center;
             margin-bottom: 2rem;
             letter-spacing: 1px;
@@ -753,18 +757,21 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 2rem;
             font-weight: 900;
-            background: linear-gradient(135deg, var(--primary-gold), #fff);
+            background: linear-gradient(135deg, var(--primary-cyan), var(--primary-gold));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
             min-width: 50px;
             text-align: center;
-            filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.5));
+            filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.5));
         }
 
         .step-content h3 {
             font-family: 'Orbitron', sans-serif;
-            color: var(--primary-gold);
+            background: linear-gradient(135deg, var(--primary-cyan), var(--primary-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
             letter-spacing: 1px;
@@ -777,15 +784,18 @@
         }
 
         .popup-note {
-            background: rgba(212, 175, 55, 0.1);
-            border-left: 4px solid var(--primary-gold);
+            background: rgba(0, 255, 255, 0.08);
+            border-left: 4px solid var(--primary-cyan);
             padding: 1rem 1.5rem;
             margin-bottom: 2rem;
             border-radius: 5px;
         }
 
         .popup-note strong {
-            color: var(--primary-gold);
+            background: linear-gradient(135deg, var(--primary-cyan), var(--primary-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
             font-family: 'Orbitron', sans-serif;
         }
 
@@ -827,8 +837,8 @@
         }
 
         .download-item {
-            background: rgba(212, 175, 55, 0.05);
-            border: 2px solid rgba(212, 175, 55, 0.3);
+            background: rgba(0, 255, 255, 0.03);
+            border: 2px solid rgba(0, 255, 255, 0.2);
             border-radius: 10px;
             padding: 2rem;
             margin-bottom: 1.5rem;
@@ -839,9 +849,10 @@
         }
 
         .download-item:hover {
-            border-color: var(--primary-gold);
-            background: rgba(212, 175, 55, 0.1);
+            border-color: var(--primary-cyan);
+            background: rgba(0, 255, 255, 0.08);
             transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0, 255, 255, 0.2);
         }
 
         .download-info h3 {
