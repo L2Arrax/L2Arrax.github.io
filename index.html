@@ -512,9 +512,21 @@
         /* Stats Section */
         .stats {
             padding: 100px 2rem;
-            background: linear-gradient(135deg, rgba(139, 0, 0, 0.2), rgba(30, 144, 255, 0.2));
-            border-top: 2px solid rgba(212, 175, 55, 0.3);
-            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+            background: var(--dark-bg);
+            border-top: 2px solid rgba(0, 255, 255, 0.2);
+            border-bottom: 2px solid rgba(0, 255, 255, 0.2);
+            position: relative;
+        }
+
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(0, 255, 255, 0.05) 0%, transparent 70%);
+            pointer-events: none;
         }
 
         .stats-grid {
@@ -558,13 +570,13 @@
         .countdown-title {
             font-family: 'Cinzel', serif;
             font-size: 3rem;
-            background: linear-gradient(135deg, var(--primary-gold), #fff);
+            background: linear-gradient(135deg, var(--primary-cyan), var(--primary-gold), #fff);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 3rem;
             letter-spacing: 3px;
-            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.5));
+            filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.4));
         }
 
         .countdown-timer {
@@ -585,18 +597,18 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 5rem;
             font-weight: 900;
-            background: linear-gradient(135deg, var(--primary-gold), #fff, var(--primary-gold));
+            background: linear-gradient(135deg, var(--primary-cyan), #fff, var(--primary-gold));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
             line-height: 1;
             min-width: 120px;
             padding: 1rem;
-            border: 2px solid rgba(212, 175, 55, 0.3);
+            border: 2px solid rgba(0, 255, 255, 0.3);
             border-radius: 10px;
             background-color: rgba(15, 15, 25, 0.6);
             backdrop-filter: blur(10px);
-            filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.4));
+            filter: drop-shadow(0 0 30px rgba(0, 255, 255, 0.3));
         }
 
         .time-label {
@@ -610,9 +622,9 @@
         .time-separator {
             font-family: 'Orbitron', sans-serif;
             font-size: 4rem;
-            color: var(--primary-gold);
+            color: var(--primary-cyan);
             font-weight: 900;
-            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.6));
+            filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.6));
         }
 
         /* Registration Popup */
