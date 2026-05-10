@@ -247,68 +247,30 @@
             overflow: hidden;
         }
 
-        /* Resplandor principal detrás del logo */
         .hero::before {
             content: '';
             position: absolute;
-            top: 30%;
+            top: 20%;
             left: 50%;
             transform: translateX(-50%);
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, 
-                rgba(0, 255, 255, 0.15) 0%, 
-                rgba(0, 200, 200, 0.08) 30%,
-                rgba(0, 150, 150, 0.04) 50%,
-                transparent 70%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.08) 0%, transparent 70%);
             filter: blur(100px);
             z-index: 0;
             animation: pulse-hero-bg 6s ease-in-out infinite;
         }
 
-        /* Anillos de energía */
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 30%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 600px;
-            height: 600px;
-            background: 
-                radial-gradient(circle, transparent 40%, rgba(0, 255, 255, 0.05) 40%, rgba(0, 255, 255, 0.05) 42%, transparent 42%),
-                radial-gradient(circle, transparent 55%, rgba(0, 255, 255, 0.03) 55%, rgba(0, 255, 255, 0.03) 57%, transparent 57%);
-            z-index: 0;
-            animation: pulse-rings 4s ease-in-out infinite;
-        }
-
         @keyframes pulse-hero-bg {
-            0%, 100% { 
-                opacity: 0.5; 
-                transform: translateX(-50%) scale(1);
-            }
-            50% { 
-                opacity: 0.8; 
-                transform: translateX(-50%) scale(1.1);
-            }
-        }
-
-        @keyframes pulse-rings {
-            0%, 100% { 
-                opacity: 0.3;
-                transform: translateX(-50%) scale(1) rotate(0deg);
-            }
-            50% { 
-                opacity: 0.6;
-                transform: translateX(-50%) scale(1.05) rotate(180deg);
-            }
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.7; }
         }
 
         .hero-content {
             max-width: 1200px;
             text-align: center;
             position: relative;
-            z-index: 10;
+            z-index: 2;
             animation: fade-in-up 1s ease-out;
         }
 
@@ -1088,181 +1050,64 @@
             transform: translateY(0);
         }
 
-        /* Hero Logo Styles */
-        .hero-logo-container {
-            margin-bottom: 3rem;
-            animation: fade-in-up 1.2s ease-out, float-logo 6s ease-in-out infinite;
-            position: relative;
-            padding: 40px;
-        }
+        /* Hero Logo Styles - INTEGRACIÓN MEJORADA */
+.hero-logo-container {
+    margin-bottom: 2rem;
+    animation: fade-in-up 1.2s ease-out, float-logo 6s ease-in-out infinite;
+    position: relative;
+    z-index: 5;
+}
 
-        /* Resplandor de fondo principal */
-        .hero-logo-container::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 140%;
-            height: 140%;
-            background: radial-gradient(ellipse, 
-                rgba(0, 255, 255, 0.25) 0%, 
-                rgba(0, 200, 200, 0.15) 30%,
-                rgba(0, 150, 150, 0.08) 50%,
-                transparent 70%);
-            filter: blur(60px);
-            z-index: -2;
-            animation: pulse-glow 4s ease-in-out infinite;
-        }
+/* El resplandor detrás del personaje */
+.hero-logo-container::before {
+    content: '';
+    position: absolute;
+    top: 40%; /* Centrado en el torso del personaje */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.25) 0%, transparent 70%);
+    filter: blur(40px);
+    z-index: -1;
+    animation: pulse-glow 4s ease-in-out infinite;
+}
 
-        /* Rayos de luz emanando del logo */
-        .hero-logo-container::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 130%;
-            height: 130%;
-            background: 
-                conic-gradient(from 0deg,
-                    transparent 0deg,
-                    rgba(0, 255, 255, 0.1) 45deg,
-                    transparent 90deg,
-                    transparent 90deg,
-                    rgba(0, 255, 255, 0.1) 135deg,
-                    transparent 180deg,
-                    transparent 180deg,
-                    rgba(0, 255, 255, 0.1) 225deg,
-                    transparent 270deg,
-                    transparent 270deg,
-                    rgba(0, 255, 255, 0.1) 315deg,
-                    transparent 360deg);
-            z-index: -1;
-            animation: rotate-rays 20s linear infinite;
-            opacity: 0.6;
-        }
+.hero-logo {
+    width: 500px; /* Un poco más grande para imponer */
+    max-width: 90vw;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    
+    /* Drop shadow basado en la silueta del PNG */
+    filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.4)) 
+            drop-shadow(0 15px 30px rgba(0, 0, 0, 0.8));
+    
+    /* ESTO ES CLAVE: Difumina la base del logo para que no se vea el corte recto */
+    -webkit-mask-image: linear-gradient(to bottom, 
+        black 0%, 
+        black 85%, 
+        transparent 100%
+    );
+    mask-image: linear-gradient(to bottom, 
+        black 0%, 
+        black 85%, 
+        transparent 100%
+    );
+    
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
-        @keyframes rotate-rays {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
-        }
+.hero-logo:hover {
+    transform: scale(1.03);
+    filter: drop-shadow(0 0 35px rgba(0, 255, 255, 0.6));
+}
 
-        @keyframes pulse-glow {
-            0%, 100% { 
-                opacity: 0.7; 
-                transform: translate(-50%, -50%) scale(1);
-            }
-            50% { 
-                opacity: 1; 
-                transform: translate(-50%, -50%) scale(1.15);
-            }
-        }
-
-        .hero-logo {
-            width: 450px;
-            max-width: 85vw;
-            height: auto;
-            position: relative;
-            filter: drop-shadow(0 0 40px rgba(0, 255, 255, 0.8)) 
-                    drop-shadow(0 0 80px rgba(0, 200, 200, 0.5))
-                    drop-shadow(0 0 120px rgba(0, 150, 150, 0.3));
-            /* Desvanecimiento suave en los bordes */
-            -webkit-mask-image: radial-gradient(ellipse 100% 100% at center, 
-                black 60%, 
-                rgba(0, 0, 0, 0.9) 75%,
-                rgba(0, 0, 0, 0.7) 85%,
-                rgba(0, 0, 0, 0.3) 95%,
-                transparent 100%);
-            mask-image: radial-gradient(ellipse 100% 100% at center, 
-                black 60%, 
-                rgba(0, 0, 0, 0.9) 75%,
-                rgba(0, 0, 0, 0.7) 85%,
-                rgba(0, 0, 0, 0.3) 95%,
-                transparent 100%);
-        }
-
-        /* Marco decorativo alrededor del logo */
-        .hero-logo-frame {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: calc(100% - 20px);
-            height: calc(100% - 20px);
-            border: 2px solid transparent;
-            border-radius: 20px;
-            background: 
-                linear-gradient(var(--dark-bg), var(--dark-bg)) padding-box,
-                linear-gradient(45deg, 
-                    rgba(0, 255, 255, 0.3), 
-                    rgba(212, 175, 55, 0.3),
-                    rgba(0, 255, 255, 0.3)) border-box;
-            pointer-events: none;
-            animation: frame-pulse 3s ease-in-out infinite;
-            box-shadow: 
-                inset 0 0 30px rgba(0, 255, 255, 0.2),
-                0 0 30px rgba(0, 255, 255, 0.15);
-        }
-
-        @keyframes frame-pulse {
-            0%, 100% { opacity: 0.6; }
-            50% { opacity: 1; }
-        }
-
-        @keyframes float-logo {
-            0%, 100% { 
-                transform: translateY(0px);
-            }
-            50% { 
-                transform: translateY(-12px);
-            }
-        }
-
-        /* Partículas flotantes alrededor del logo */
-        .logo-particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .logo-particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(0, 255, 255, 0.6);
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
-            animation: float-around 8s infinite ease-in-out;
-        }
-
-        .logo-particle:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
-        .logo-particle:nth-child(2) { top: 30%; right: 15%; animation-delay: 1s; }
-        .logo-particle:nth-child(3) { bottom: 25%; left: 20%; animation-delay: 2s; }
-        .logo-particle:nth-child(4) { bottom: 30%; right: 10%; animation-delay: 3s; }
-        .logo-particle:nth-child(5) { top: 50%; left: 5%; animation-delay: 1.5s; }
-        .logo-particle:nth-child(6) { top: 50%; right: 5%; animation-delay: 2.5s; }
-
-        @keyframes float-around {
-            0%, 100% { 
-                transform: translateY(0) translateX(0);
-                opacity: 0;
-            }
-            10% { opacity: 1; }
-            50% {
-                transform: translateY(-30px) translateX(15px);
-                opacity: 1;
-            }
-            90% { opacity: 1; }
-            100% {
-                transform: translateY(-60px) translateX(30px);
-                opacity: 0;
-            }
-        }
+@keyframes pulse-glow {
+    0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.2); }
+}
     </style>
 </head>
 <body>
@@ -1296,15 +1141,6 @@
         <div class="hero-content">
             <div class="hero-logo-container">
                 <img src="L2DarkWorld.png" alt="Lineage DarkWorld" class="hero-logo">
-                <div class="hero-logo-frame"></div>
-                <div class="logo-particles">
-                    <div class="logo-particle"></div>
-                    <div class="logo-particle"></div>
-                    <div class="logo-particle"></div>
-                    <div class="logo-particle"></div>
-                    <div class="logo-particle"></div>
-                    <div class="logo-particle"></div>
-                </div>
             </div>
             <div class="subtitle">Multiskill Server</div>
             <p class="description">
@@ -1666,18 +1502,4 @@
     </script>
 	<a href="https://l2list.com" style="position: fixed; z-index:99999; bottom: 10px; left: 10px;" target="_blank"><img src="https://l2list.com/bnrs/l2list_lineage2.png" alt="New private servers Lineage 2" title="New private servers Lineage 2"></a>
 	</body>
-</html><style>
-/* Efecto de niebla envolvente alrededor del logo */
-.hero-logo-container {
-    filter: drop-shadow(0 10px 50px rgba(0, 0, 0, 0.5));
-}
-
-/* Añadir brillos en las esquinas */
-.hero-logo-container .corner-glow {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    background: radial-gradient(circle, rgba(0, 255, 255, 0.4) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-    animation: corner-pulse 3s ease-in-out infinite;
+</html>
